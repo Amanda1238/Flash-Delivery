@@ -1,6 +1,7 @@
 from typing import List
 from realizar_pedido.realiza_pedido import realizar_pedido, Pedido
 from buscar_pedido.busca_pedido import buscar_pedido
+from comprimir_dados_pedido.comprimi_dados import salvar_jogo, carregar_historico
 
 
 
@@ -30,7 +31,8 @@ print("Escolha uma das opções do menu principal para começar o jogo!")
 
 # variaveis auxiliares
 op = 0
-historico: List[Pedido] = []
+historico: List[Pedido] = carregar_historico(arquivo="savegame.json")
+quantidadePedido = len(historico)
 enderecos = [
     "Alvorada",
     "Boa Vista",
@@ -54,8 +56,7 @@ enderecos = [
     "São Jorge",
     "Vila Rica"
 ]
-id_pedido = 100
-quantidadePedido = 0
+id_pedido = 100 + quantidadePedido
 
 while op!=6:
 
@@ -82,7 +83,8 @@ while op!=6:
         case 2:
             buscar_pedido(historico, quantidadePedido)
         case 3:
-            print("Salvar jogo")
+            salvar_jogo(historico, arquivo="savegame.json")
+            print("Jogo salvo com sucesso!\n")
         case 4:
             print("Simular o caminho mais curto")
         case 5:

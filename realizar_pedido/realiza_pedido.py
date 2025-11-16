@@ -12,6 +12,12 @@ class Pedido:
     tempo_da_entrega: int
     status: int
 
+    nome_comprimido: str = None
+    tabela_nome: dict = None
+    endereco_comprimido: str = None
+    tabela_endereco: dict = None
+
+
 def criar_pedido(enderecos: list[str], nome_cliente: str, id_pedido: int) -> Pedido:
 
     tempo_por_bairro = {
