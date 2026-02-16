@@ -1,0 +1,136 @@
+{
+    "endereco": [
+        "centro",
+        "jardim",
+        "boa vista",
+        "reinaldo",
+        "monte negro",
+        "criciuma",
+        "sao paulo",
+        "ribeirao"
+    ],
+    "matrizAdijacencia": [
+        [
+            0,
+            6,
+            5,
+            0,
+            0,
+            0,
+            0,
+            3
+        ],
+        [
+            6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            5,
+            0,
+            0,
+            0,
+            6,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    ],
+    "listaAdijacensia": {
+        "centro": [
+            [
+                "jardim",
+                6
+            ],
+            [
+                "boa vista",
+                5
+            ],
+            [
+                "ribeirao",
+                3
+            ]
+        ],
+        "jardim": [
+            [
+                "centro",
+                6
+            ]
+        ],
+        "boa vista": [
+            [
+                "centro",
+                5
+            ],
+            [
+                "monte negro",
+                6
+            ]
+        ],
+        "reinaldo": [],
+        "monte negro": [],
+        "criciuma": [],
+        "sao paulo": [],
+        "ribeirao": [
+            [
+                "centro",
+                3
+            ]
+        ]
+    }
+}
