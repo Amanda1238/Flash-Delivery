@@ -249,10 +249,21 @@ def buscar_associacao_nome(historico: list, quantidadePedido: int):
         print(f"Nenhum pedido encontrado com  padrão '{padrao}'.")
     print(f"A busca demorou: {tempo_final:.6f} segundos ")
 
+def listar_todos_bairros(enderocos: list):
+    if not enderocos:
+        print("Não tem endereços cadastrados!")
+        return
+    print("=============== Listas de Endereços ===============")
+    for i in range(len(enderocos)):
+        p = enderocos[i]
+        print(f"{i+1} : {p} ")
+    print("===================================================")
 
-def buscar_pedido(historico:list, quantidadePedido: int):
-    opcao = 0
-    while opcao != 6:
+
+
+def buscar_pedido(endereco,historico:list, quantidadePedido: int):
+    opcao = 20
+    while opcao != 0:
         print("╭" + "─" * 54 + "╮")
         print("│{:^53}│".format(" MENU DE CONSULTAS  "))
         print("├" + "─" * 54 + "┤")
@@ -261,7 +272,8 @@ def buscar_pedido(historico:list, quantidadePedido: int):
         print("│ 3 - Buscar todas as ocorrências por bairro           │")# binario
         print("│ 4 - Buscar pelo um cliente especifico                │")# binario
         print("│ 5 - Buscar uma associação do nome do cliente         │")# Rabin-Karp
-        print("│ 6 - Sair                                             │")
+        print("│ 6 - Buscar todos os enderecos cadastrados            │")#sequencial
+        print("│ 0 - Sair                                             │")
         print("╰" + "─" * 54 + "╯")
         try:
             opcao = int(input("Digite uma opção:"))
@@ -281,6 +293,8 @@ def buscar_pedido(historico:list, quantidadePedido: int):
             case 5:
                 buscar_associacao_nome(historico, quantidadePedido)
             case 6:
+                listar_todos_bairros(endereco)
+            case 0:
                 print("Saindo...")
             case _:
                 print("Opção invalida!")

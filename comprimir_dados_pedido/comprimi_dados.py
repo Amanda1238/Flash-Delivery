@@ -138,7 +138,8 @@ def salvar_jogo(historico, arquivo="savegame.json"):
             "endereco": end_cod,
             "end_arvore": salvar_arvore(end_arvore),
             "tempo_da_entrega": p.tempo_da_entrega,
-            "status": p.status
+            "status": p.status,
+            "desconto_produto": p.desconto_produto
         })
 
     with open(arquivo, "w", encoding="utf-8") as f:
@@ -177,9 +178,35 @@ def carregar_historico(arquivo="savegame.json"):
             d["peso_da_mochila"],
             end,
             d["tempo_da_entrega"],
-            d["status"]
+            d["status"],
+            d.get("desconto_produto", 0.0) 
         )
+
         historico.append(p)
 
     return historico
+#--------------------------------------Salva grafo ----------------
+def salvar_mapa(endereco, matriz, lista):
+    dados = {
+        "endereco": endereco,
+        "matrizAdijacencia": matriz,
+        "listaAdijacensia": lista
+    }
 
+    with open("savegrafo.json", "w", encoding="utf-8") as f:
+        json.dump(dados, f, indent=4, ensure_ascii=False)
+
+    print("Mapa salvo com sucesso!")
+def carregar_mapa():
+    try:
+        with open("savegrafo.json", "r", encoding="utf-8") as f:
+            dados = json.load(f)
+            print("Mapa carregado com sucesso!")
+            return (
+                dados["endereco"],
+                dados["matrizAdijacencia"],
+                dados["listaAdijacensia"]
+            )
+    except FileNotFoundError:
+        print("Nenhum mapa salvo encontrado.")
+        return [], [], {}

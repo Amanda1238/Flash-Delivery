@@ -1,19 +1,18 @@
+from dataclasses import dataclass, field
 from typing import List
 from realizar_pedido.realiza_pedido import realizar_pedido, Pedido
 from buscar_pedido.busca_pedido import buscar_pedido
-from comprimir_dados_pedido.comprimi_dados import salvar_jogo, carregar_historico
+from comprimir_dados_pedido.comprimi_dados import salvar_jogo, carregar_historico, salvar_mapa
+from montar_mapa.monta_mapa import endereco,matrizAdijacencia,listaAdijacensia, montar_menu_mapa
+from buscar_mapa.busca_mapa import montar_menu_busca_mapa
+from realizar_entrega.realiza_entrega import colorir_pedidos, imprimir_pedidos
 
-
-
-#@dataclass
-#class Motorista:
-#    Id_motorista: int
-#    Bairro_atual: str
-#    Quantidade_mochila: int
-#    Lucro_total: float
-#    Unidade_de_moedas: int
-#    Quantidade_de_entregas: int
-#    Pedidos_entregas: List[Pedido] = field(default_factory=list)
+@dataclass
+class Motorista:
+    Id_motorista: int
+    Lucro_total: float
+    Quantidade_de_entregas: int
+    Pedidos_entregas: List[Pedido] = field(default_factory=list)
 
 # inicio jogo
 largura = 70
@@ -30,35 +29,13 @@ print("Escolha uma das opções do menu principal para começar o jogo!")
 
 
 # variaveis auxiliares
-op = 0
+op = 20
 historico: List[Pedido] = carregar_historico(arquivo="savegame.json")
 quantidadePedido = len(historico)
-enderecos = [
-    "Alvorada",
-    "Boa Vista",
-    "Canudos",
-    "Centro",
-    "Cruzeiro do Sul",
-    "Distrito Industrial",
-    "Esperança",
-    "Jardim América",
-    "Jardim das Flores",
-    "Jardim Europa",
-    "Jardim Panorama",
-    "Jardim Primavera",
-    "Jardim Vitória",
-    "Morada do Sol",
-    "Morumbi",
-    "Nova Esperança",
-    "Parque das Nações",
-    "Planalto",
-    "Santa Luzia",
-    "São Jorge",
-    "Vila Rica"
-]
+
 id_pedido = 100 + quantidadePedido
 
-while op!=6:
+while op!=0:
 
     print("╔" + "═" * 55 + "╗")
     print("║{:^55}║".format("  MENU PRINCIPAL  "))
@@ -66,9 +43,10 @@ while op!=6:
     print("║ 1 - Realizar Pedido                                  ║")
     print("║ 2 - Informações do Pedido                            ║")
     print("║ 3 - Salvar o Jogo                                    ║")
-    print("║ 4 - Simular o Caminho Mais Curto                     ║")
-    print("║ 5 - Realizar Entrega                                 ║")
-    print("║ 6 - Sair                                             ║")
+    print("║ 4 - Montar o mapa do jogo                            ║")
+    print("║ 5 - Buscas pelo mapa                                 ║")
+    print("║ 6 - Realizar Entrega                                 ║")
+    print("║ 0 - Sair                                             ║")
     print("╚" + "═" * 55 + "╝")
 
     try:
@@ -79,17 +57,20 @@ while op!=6:
 
     match op:
         case 1:
-           id_pedido, quantidadePedido = realizar_pedido(enderecos, historico, id_pedido, quantidadePedido)
+           id_pedido, quantidadePedido = realizar_pedido(listaAdijacensia,endereco, historico, id_pedido, quantidadePedido)
         case 2:
-            buscar_pedido(historico, quantidadePedido)
+            buscar_pedido(endereco, historico, quantidadePedido)
         case 3:
             salvar_jogo(historico, arquivo="savegame.json")
+            salvar_mapa(endereco,matrizAdijacencia,listaAdijacensia)
             print("Jogo salvo com sucesso!\n")
         case 4:
-            print("Simular o caminho mais curto")
+            montar_menu_mapa()
         case 5:
-            print("realizar entrega")
+            montar_menu_busca_mapa(endereco,listaAdijacensia)
         case 6:
+            print("construindo")
+        case 0:
             print("saindo...")
         case _:
             print("Opção invalida, tente denovo")
