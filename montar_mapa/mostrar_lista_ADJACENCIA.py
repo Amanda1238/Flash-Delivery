@@ -1,5 +1,4 @@
-from montar_mapa.menu_monta_mapa import listaAdijacensia
-def mostrar_lista():
+def mostrar_lista(listaAdijacensia):
     print("\n=== LISTA DE ADJACÊNCIAS ===")
     for v in listaAdijacensia:
         print(f"{v} -> {listaAdijacensia[v]}")

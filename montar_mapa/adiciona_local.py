@@ -1,5 +1,5 @@
-from montar_mapa.menu_monta_mapa import endereco,matrizAdijacencia,listaAdijacensia
-def adicionar_local(bairro):
+
+def adicionar_local(bairro, endereco, listaAdijacensia, matrizAdijacencia):
     bairros = bairro.lower()
     if bairros in endereco:
         print("Local já existe")

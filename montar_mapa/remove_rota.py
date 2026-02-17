@@ -1,5 +1,4 @@
-from montar_mapa.menu_monta_mapa import endereco,matrizAdijacencia,listaAdijacensia
-def remover_rota(origem, destino ):
+def remover_rota(origem, destino, endereco, listaAdijacensia, matrizAdijacencia ):
     if origem not in endereco or destino not in endereco:
         print("\nErro: um dos endereços não existe!")
         return

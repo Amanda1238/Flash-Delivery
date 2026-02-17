@@ -1,5 +1,5 @@
-from montar_mapa.menu_monta_mapa import endereco,matrizAdijacencia,listaAdijacensia
-def adicionar_rota(origem, destino, peso, dupla):
+
+def adicionar_rota(origem, destino, peso, dupla, endereco, listaAdijacensia, matrizAdijacencia):
     if origem == destino:
         print("\nErro: origem e destino não podem ser o mesmo local!")
         return

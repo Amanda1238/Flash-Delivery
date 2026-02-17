@@ -35,7 +35,7 @@ def montar_menu_mapa():
         match opcao:
             case 1:
                 nome = input("Nome do local: ")
-                adicionar_local(nome)
+                adicionar_local(nome, endereco, listaAdijacensia, matrizAdijacencia)
             case 2:
                 if len(endereco) <2:
                     print("Para adicionar rota tem que tem pelo menos dois endereços!")
@@ -57,16 +57,16 @@ def montar_menu_mapa():
 
                 dupla = input("É mão dupla? (s/n): ").lower() == "s"
 
-                adicionar_rota(origem, destino, peso, dupla)
+                adicionar_rota(origem, destino, peso, dupla, endereco, listaAdijacensia, matrizAdijacencia)
             case 3:
                 print("Digite a rota que voce quer remover")
                 origem = input("Digite o nome da origem do lugar a ser removido: ")
                 destino = input("Digite o nome do destino do lugar a ser removido: ")
-                remover_rota(origem, destino)
+                remover_rota(origem, destino, endereco, listaAdijacensia, matrizAdijacencia)
             case 4:
-                mostrar_matriz()
+                mostrar_matriz(endereco, matrizAdijacencia)
             case 5:
-                mostrar_lista()
+                mostrar_lista(listaAdijacensia)
             case 0:
                 print("saindo...")
             case _:

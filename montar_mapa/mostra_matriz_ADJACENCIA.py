@@ -1,5 +1,4 @@
-from montar_mapa.menu_monta_mapa import endereco,matrizAdijacencia
-def mostrar_matriz():
+def mostrar_matriz(endereco, matrizAdijacencia):
     print("\n=== MATRIZ DE ADJACÊNCIA ===")
 
     print("     ", end="")
