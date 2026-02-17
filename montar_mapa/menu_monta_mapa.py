@@ -1,7 +1,18 @@
-from comprimir_dados_pedido.comprimi_dados import carregar_mapa
+from comprimir_dados_pedido.salva_mapa import carregar_mapa
+from .adiciona_local import adicionar_local
+from .adiciona_rota import adicionar_rota
+from .remove_rota import remover_rota
+from .mostra_matriz_ADJACENCIA import mostrar_matriz
+from .mostrar_lista_ADJACENCIA import mostrar_lista
 
-endereco, matrizAdijacencia, listaAdijacensia = carregar_mapa()
+endereco = []
+matrizAdijacencia = []
+listaAdijacensia = {}
+
 def montar_menu_mapa():
+    global endereco, matrizAdijacencia, listaAdijacensia
+
+    endereco, matrizAdijacencia, listaAdijacensia = carregar_mapa()
     opcao = 20
     while opcao!=0:
 
@@ -51,7 +62,7 @@ def montar_menu_mapa():
                 print("Digite a rota que voce quer remover")
                 origem = input("Digite o nome da origem do lugar a ser removido: ")
                 destino = input("Digite o nome do destino do lugar a ser removido: ")
-                remover_rota(origem,destino)
+                remover_rota(origem, destino)
             case 4:
                 mostrar_matriz()
             case 5:
@@ -61,78 +72,9 @@ def montar_menu_mapa():
             case _:
                 print("Opção invalida, tente denovo")
 
-def adicionar_local(bairro):
-    bairros = bairro.lower()
-    if bairros in endereco:
-        print("Local já existe")
-        return
-
-    endereco.append(bairros)
-    listaAdijacensia[bairros] = []
-
-    for linha in matrizAdijacencia:
-        linha.append(0)
-    matrizAdijacencia.append([0]*len(endereco))
-    print(f"Local '{bairros}' adicionado.")
-def adicionar_rota(origem, destino, peso, dupla):
-    if origem == destino:
-        print("\nErro: origem e destino não podem ser o mesmo local!")
-        return
-
-    i = endereco.index(origem)
-    j = endereco.index(destino)
-
-    for destinos, p in listaAdijacensia[origem]:
-        if destinos == destino:
-            print(f"\nA rota {origem} → {destino} já existe!")
-            return
-    matrizAdijacencia[i][j] = peso
-    listaAdijacensia[origem].append((destino, peso))
-
-    if dupla:
-        for origens, p in listaAdijacensia[destino]:
-            if origens == origem:
-                print(f"\nA rota {destino} → {origem} já existe! (mão dupla)")
-                return
-
-        matrizAdijacencia[j][i] = peso
-        listaAdijacensia[destino].append((origem, peso))
-
-    print(f"Rota adicionada: {origem} → {destino} ({peso})")
-    if dupla:
-        print(f"Rota adicionada: {destino} → {origem} ({peso}) Mão dupla")
-
-def remover_rota(origem, destino):
-    if origem not in endereco or destino not in endereco:
-        print("\nErro: um dos endereços não existe!")
-        return
-    i = endereco.index(origem)
-    j = endereco.index(destino)
-
-    for indice, (d, p) in enumerate(listaAdijacensia[origem]):
-        if d == destino:
-            listaAdijacensia[origem].pop(indice)
-            matrizAdijacencia[i][j] = 0
-            print(f"Rota removida: {origem} → {destino}")
-            return
-
-    print(f"\nRota {origem} → {destino} não encontrada!")
 
 
 
-def mostrar_matriz():
-    print("\n=== MATRIZ DE ADJACÊNCIA ===")
 
-    print("     ", end="")
-    for nome in endereco:
-        print(f"{nome:8}", end="")
-    print()
 
-    for i, linha in enumerate(matrizAdijacencia):
-        print(f"{endereco[i]:5}", linha)
-
-def mostrar_lista():
-    print("\n=== LISTA DE ADJACÊNCIAS ===")
-    for v in listaAdijacensia:
-        print(f"{v} -> {listaAdijacensia[v]}")
 
