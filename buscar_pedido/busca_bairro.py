@@ -52,13 +52,19 @@ def buscar_bairro(historico: list, quantidadePedido: int):
         print(f"Ocorrências encontradas do bairro '{buscaBairro}':")
         print("\n=================== PEDIDO ===================")
         for p in encontrados:
+            if p.status == 2:
+                status_txt = "Entregue"
+            elif p.status == 1:
+                status_txt = "Pendente (com desconto)"
+            else:
+                status_txt = "Pendente"
 
             print(f"  ID: {p.id_pedido}")
             print(f"  Cliente: {p.nome_cliente}")
             print(f"  Endereço: {p.endereco}")
             print(f"  Valor: R${p.valor_da_entrega}")
             print(f"  Tempo da entrega: R${p.tempo_da_entrega}")
-            print(f"  Status: {'Entregue' if p.status == 1 else 'Pendente'}")
+            print(f"  Status: {status_txt}")
             print("==============================================")
 
     else:

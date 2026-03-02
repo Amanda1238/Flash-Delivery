@@ -5,6 +5,12 @@ def listar_todos_historicos(pedidos: list, quantidadePedido: int):
         return
     for i in range(quantidadePedido):
         p = pedidos[i]
+        if p.status == 2:
+            status_txt = "Entregue"
+        elif p.status == 1:
+            status_txt = "Pendente (com desconto)"
+        else:
+            status_txt = "Pendente"
         print("\n===================================================")
         print(f"  COMANDA — Pedido nº {i + 1}")
         print("===================================================")
@@ -14,6 +20,6 @@ def listar_todos_historicos(pedidos: list, quantidadePedido: int):
         print(f"  Peso............: {p.peso_da_mochila} kg")
         print(f"  Endereço........: {p.endereco}")
         print(f"  Tempo estimado..: {p.tempo_da_entrega} min")
-        print(f"  Status..........: {'Entregue' if p.status == 1 else 'Pendente'}")
+        print(f"  Status..........: {status_txt}")
         print("===================================================")
 

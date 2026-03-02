@@ -25,6 +25,12 @@ def buscar_nome(historico: list, quantidadePedido: int):
 
     if encontrou == 1:
         for p in encontrados:
+            if p.status == 2:
+                status_txt = "Entregue"
+            elif p.status == 1:
+                status_txt = "Pendente (com desconto)"
+            else:
+                status_txt = "Pendente"
             print("\n+-----------------------------------------------+")
             print(f"| CLIENTE: {p.nome_cliente:<33}|")
             print("+-----------------------------------------------+")
@@ -33,7 +39,7 @@ def buscar_nome(historico: list, quantidadePedido: int):
             print(f"| PESO............: {p.peso_da_mochila:<25}kg|")
             print(f"| ENDEREÇO........: {p.endereco:<25}|")
             print(f"| TEMPO ESTIMADO..: {p.tempo_da_entrega:<22}min|")
-            print(f"| STATUS..........: {'Entregue' if p.status == 1 else 'Pendente':<22}|")
+            print(f"| STATUS..........: {status_txt}|")
             print("+-----------------------------------------------+")
     else:
         print("Nome não foi encontrado!")

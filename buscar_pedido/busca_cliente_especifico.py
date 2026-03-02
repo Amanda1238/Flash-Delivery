@@ -38,7 +38,13 @@ def buscar_cliente_especifico(historico:list, quantidadePedido:str):
         print(f"  Endereço: {historico[meio].endereco}")
         print(f"  Valor: R${historico[meio].valor_da_entrega}")
         print(f"  Tempo da entrega: R${historico[meio].tempo_da_entrega}")
-        print(f"  Status: {'Entregue' if historico[meio].status == 1 else 'Pendente'}")
+        if historico[meio].status == 2:
+            status_txt = "Entregue"
+        elif historico[meio].status == 1:
+            status_txt = "Pendente (com desconto)"
+        else:
+            status_txt = "Pendente"
+        print(f"  Status: {status_txt}")
         print("==============================================")
 
     else:
