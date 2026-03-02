@@ -1,21 +1,25 @@
-from dataclasses import dataclass, field
 from typing import List
 from realizar_pedido.realiza_pedido import realizar_pedido, Pedido
 from buscar_pedido.busca_pedido import buscar_pedido
-from comprimir_dados_pedido.comprimi_dados import salvar_jogo, carregar_historico, salvar_mapa
-from montar_mapa.monta_mapa import endereco,matrizAdijacencia,listaAdijacensia, montar_menu_mapa
+from comprimir_dados_pedido.comprimi_dados import salvar_jogo, carregar_historico
+from comprimir_dados_pedido.salva_mapa import salvar_mapa
+import montar_mapa.menu_monta_mapa as mapa
+from montar_mapa.menu_monta_mapa import montar_menu_mapa
 from buscar_mapa.busca_mapa import montar_menu_busca_mapa
-from realizar_entrega.realiza_entrega import colorir_pedidos, imprimir_pedidos
+from realizar_entrega.realiza_entrega import Motorista, realizar_entregas, mostrar_motoristas, finalizar_entregas
 
-@dataclass
-class Motorista:
-    Id_motorista: int
-    Lucro_total: float
-    Quantidade_de_entregas: int
-    Pedidos_entregas: List[Pedido] = field(default_factory=list)
+
 
 # inicio jogo
 largura = 70
+
+# quantidade de motorista
+motoristas = [
+    Motorista(1),
+    Motorista(2),
+    Motorista(3)
+]
+
 
 print("=" * largura)
 print("  Seja Bem-Vindo à".center(largura))
@@ -34,6 +38,8 @@ historico: List[Pedido] = carregar_historico(arquivo="savegame.json")
 quantidadePedido = len(historico)
 
 id_pedido = 100 + quantidadePedido
+mapa.endereco, mapa.matrizAdijacencia, mapa.listaAdijacensia = mapa.carregar_mapa()
+
 
 while op!=0:
 
@@ -57,19 +63,24 @@ while op!=0:
 
     match op:
         case 1:
-           id_pedido, quantidadePedido = realizar_pedido(listaAdijacensia,endereco, historico, id_pedido, quantidadePedido)
+           id_pedido, quantidadePedido = realizar_pedido(mapa.listaAdijacensia,mapa.endereco, historico, id_pedido, quantidadePedido)
         case 2:
-            buscar_pedido(endereco, historico, quantidadePedido)
+            buscar_pedido(mapa.endereco, historico, quantidadePedido)
         case 3:
             salvar_jogo(historico, arquivo="savegame.json")
-            salvar_mapa(endereco,matrizAdijacencia,listaAdijacensia)
+            salvar_mapa(mapa.endereco,mapa.matrizAdijacencia,mapa.listaAdijacensia)
             print("Jogo salvo com sucesso!\n")
         case 4:
             montar_menu_mapa()
         case 5:
-            montar_menu_busca_mapa(endereco,listaAdijacensia)
+            montar_menu_busca_mapa(mapa.endereco, mapa.listaAdijacensia)
         case 6:
-            print("construindo")
+            origem = "centro"
+            sucesso = realizar_entregas(motoristas, historico, mapa.listaAdijacensia)
+            if sucesso:
+                mostrar_motoristas(motoristas, mapa.listaAdijacensia, origem)
+                finalizar_entregas(motoristas)
+                print("\n Entregas finalizadas com sucesso!\n")
         case 0:
             print("saindo...")
         case _:
