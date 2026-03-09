@@ -1,0 +1,20 @@
+[
+    {
+        "Id_motorista": 1,
+        "Lucro_total": 0,
+        "Quantidade_de_entregas": 0,
+        "Quantidade_realizadas": 1
+    },
+    {
+        "Id_motorista": 2,
+        "Lucro_total": 0,
+        "Quantidade_de_entregas": 0,
+        "Quantidade_realizadas": 0
+    },
+    {
+        "Id_motorista": 3,
+        "Lucro_total": 0,
+        "Quantidade_de_entregas": 0,
+        "Quantidade_realizadas": 0
+    }
+]

@@ -98,6 +98,271 @@
             }
         },
         "tempo_da_entrega": 6,
-        "status": 0
+        "status": 2,
+        "desconto_produto": 0.0
+    },
+    {
+        "id_pedido": 101,
+        "nome_cliente": "100110011110010101",
+        "nome_arvore": {
+            "caractere": null,
+            "frequencia": 7,
+            "esquerdo": {
+                "caractere": null,
+                "frequencia": 3,
+                "esquerdo": {
+                    "caractere": "d",
+                    "frequencia": 1,
+                    "esquerdo": null,
+                    "direito": null
+                },
+                "direito": {
+                    "caractere": "a",
+                    "frequencia": 2,
+                    "esquerdo": null,
+                    "direito": null
+                }
+            },
+            "direito": {
+                "caractere": null,
+                "frequencia": 4,
+                "esquerdo": {
+                    "caractere": null,
+                    "frequencia": 2,
+                    "esquerdo": {
+                        "caractere": "C",
+                        "frequencia": 1,
+                        "esquerdo": null,
+                        "direito": null
+                    },
+                    "direito": {
+                        "caractere": "i",
+                        "frequencia": 1,
+                        "esquerdo": null,
+                        "direito": null
+                    }
+                },
+                "direito": {
+                    "caractere": null,
+                    "frequencia": 2,
+                    "esquerdo": {
+                        "caractere": "l",
+                        "frequencia": 1,
+                        "esquerdo": null,
+                        "direito": null
+                    },
+                    "direito": {
+                        "caractere": "u",
+                        "frequencia": 1,
+                        "esquerdo": null,
+                        "direito": null
+                    }
+                }
+            }
+        },
+        "valor_da_entrega": 63.77,
+        "peso_da_mochila": 3,
+        "endereco": "010111101110100011101001100100111",
+        "end_arvore": {
+            "caractere": null,
+            "frequencia": 11,
+            "esquerdo": {
+                "caractere": null,
+                "frequencia": 4,
+                "esquerdo": {
+                    "caractere": "e",
+                    "frequencia": 2,
+                    "esquerdo": null,
+                    "direito": null
+                },
+                "direito": {
+                    "caractere": null,
+                    "frequencia": 2,
+                    "esquerdo": {
+                        "caractere": "m",
+                        "frequencia": 1,
+                        "esquerdo": null,
+                        "direito": null
+                    },
+                    "direito": {
+                        "caractere": " ",
+                        "frequencia": 1,
+                        "esquerdo": null,
+                        "direito": null
+                    }
+                }
+            },
+            "direito": {
+                "caractere": null,
+                "frequencia": 7,
+                "esquerdo": {
+                    "caractere": null,
+                    "frequencia": 3,
+                    "esquerdo": {
+                        "caractere": "r",
+                        "frequencia": 1,
+                        "esquerdo": null,
+                        "direito": null
+                    },
+                    "direito": {
+                        "caractere": "n",
+                        "frequencia": 2,
+                        "esquerdo": null,
+                        "direito": null
+                    }
+                },
+                "direito": {
+                    "caractere": null,
+                    "frequencia": 4,
+                    "esquerdo": {
+                        "caractere": null,
+                        "frequencia": 2,
+                        "esquerdo": {
+                            "caractere": "g",
+                            "frequencia": 1,
+                            "esquerdo": null,
+                            "direito": null
+                        },
+                        "direito": {
+                            "caractere": "t",
+                            "frequencia": 1,
+                            "esquerdo": null,
+                            "direito": null
+                        }
+                    },
+                    "direito": {
+                        "caractere": "o",
+                        "frequencia": 2,
+                        "esquerdo": null,
+                        "direito": null
+                    }
+                }
+            }
+        },
+        "tempo_da_entrega": 6,
+        "status": 2,
+        "desconto_produto": 2.0
+    },
+    {
+        "id_pedido": 102,
+        "nome_cliente": "100110011110010101",
+        "nome_arvore": {
+            "caractere": null,
+            "frequencia": 7,
+            "esquerdo": {
+                "caractere": null,
+                "frequencia": 3,
+                "esquerdo": {
+                    "caractere": "d",
+                    "frequencia": 1,
+                    "esquerdo": null,
+                    "direito": null
+                },
+                "direito": {
+                    "caractere": "a",
+                    "frequencia": 2,
+                    "esquerdo": null,
+                    "direito": null
+                }
+            },
+            "direito": {
+                "caractere": null,
+                "frequencia": 4,
+                "esquerdo": {
+                    "caractere": null,
+                    "frequencia": 2,
+                    "esquerdo": {
+                        "caractere": "C",
+                        "frequencia": 1,
+                        "esquerdo": null,
+                        "direito": null
+                    },
+                    "direito": {
+                        "caractere": "i",
+                        "frequencia": 1,
+                        "esquerdo": null,
+                        "direito": null
+                    }
+                },
+                "direito": {
+                    "caractere": null,
+                    "frequencia": 2,
+                    "esquerdo": {
+                        "caractere": "l",
+                        "frequencia": 1,
+                        "esquerdo": null,
+                        "direito": null
+                    },
+                    "direito": {
+                        "caractere": "u",
+                        "frequencia": 1,
+                        "esquerdo": null,
+                        "direito": null
+                    }
+                }
+            }
+        },
+        "valor_da_entrega": 72.63,
+        "peso_da_mochila": 7,
+        "endereco": "1100011101101100",
+        "end_arvore": {
+            "caractere": null,
+            "frequencia": 6,
+            "esquerdo": {
+                "caractere": null,
+                "frequencia": 2,
+                "esquerdo": {
+                    "caractere": "e",
+                    "frequencia": 1,
+                    "esquerdo": null,
+                    "direito": null
+                },
+                "direito": {
+                    "caractere": "t",
+                    "frequencia": 1,
+                    "esquerdo": null,
+                    "direito": null
+                }
+            },
+            "direito": {
+                "caractere": null,
+                "frequencia": 4,
+                "esquerdo": {
+                    "caractere": null,
+                    "frequencia": 2,
+                    "esquerdo": {
+                        "caractere": "o",
+                        "frequencia": 1,
+                        "esquerdo": null,
+                        "direito": null
+                    },
+                    "direito": {
+                        "caractere": "r",
+                        "frequencia": 1,
+                        "esquerdo": null,
+                        "direito": null
+                    }
+                },
+                "direito": {
+                    "caractere": null,
+                    "frequencia": 2,
+                    "esquerdo": {
+                        "caractere": "c",
+                        "frequencia": 1,
+                        "esquerdo": null,
+                        "direito": null
+                    },
+                    "direito": {
+                        "caractere": "n",
+                        "frequencia": 1,
+                        "esquerdo": null,
+                        "direito": null
+                    }
+                }
+            }
+        },
+        "tempo_da_entrega": 3,
+        "status": 2,
+        "desconto_produto": 0
     }
 ]

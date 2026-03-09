@@ -3,6 +3,7 @@ from realizar_pedido.realiza_pedido import realizar_pedido, Pedido
 from buscar_pedido.busca_pedido import buscar_pedido
 from comprimir_dados_pedido.comprimi_dados import salvar_jogo, carregar_historico
 from comprimir_dados_pedido.salva_mapa import salvar_mapa
+from comprimir_dados_pedido.salva_motorista import salvar_motoristas, carregar_motoristas
 import montar_mapa.menu_monta_mapa as mapa
 from montar_mapa.menu_monta_mapa import montar_menu_mapa
 from buscar_mapa.busca_mapa import montar_menu_busca_mapa
@@ -14,11 +15,14 @@ from realizar_entrega.realiza_entrega import Motorista, realizar_entregas, mostr
 largura = 70
 
 # quantidade de motorista
-motoristas = [
-    Motorista(1),
-    Motorista(2),
-    Motorista(3)
-]
+motoristas = carregar_motoristas()
+
+if not motoristas:
+    motoristas = [
+        Motorista(1),
+        Motorista(2),
+        Motorista(3)
+    ]
 
 
 print("=" * largura)
@@ -69,6 +73,7 @@ while op!=0:
         case 3:
             salvar_jogo(historico, arquivo="savegame.json")
             salvar_mapa(mapa.endereco,mapa.matrizAdijacencia,mapa.listaAdijacensia)
+            salvar_motoristas(motoristas)
             print("Jogo salvo com sucesso!\n")
         case 4:
             montar_menu_mapa()
