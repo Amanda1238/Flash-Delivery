@@ -34,7 +34,7 @@ print("Você será o responsável por comandar toda a operação.".center(largur
 print("=" * largura)
 print()
 print("Escolha uma das opções do menu principal para começar o jogo!")
-print("oiiiii")
+print()
 
 # variaveis auxiliares
 op = 20
