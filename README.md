@@ -8,7 +8,7 @@ output:
 ---
 
 
->**Flash Delivery** é um jogo de **logística de entregas**, onde o jogador assume o papel de gerente responsável por coordenar pedidos, entregas.
+>**Flash Delivery** é um jogo de **logística de entregas**, feito totalmento no terminal usando a linguagem Python, onde o jogador assume o papel de gerente responsável por coordenar pedidos, entregas.
 
 
 
